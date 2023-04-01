@@ -36,5 +36,17 @@ obwod=a+b+c+d
 pole=0.5*(a+b)*h
 print("Obwód trapezu wynosi: " + str(obwod) + ", a pole: " + str(pole) + ".")
 
+# trojkat
+
+a = 10
+b = 20
+c = 15
+h = 12
+
+obwod = a + b + c
+pole = int((h * a) / 2)
+
+print("Obwod trojkata wynosi " + str(obwod) + ", zas pole wynisi " + str(pole) + ".")
+
 
 
