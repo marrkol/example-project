@@ -48,5 +48,13 @@ pole = int((h * a) / 2)
 
 print("Obwod trojkata wynosi " + str(obwod) + ", zas pole wynisi " + str(pole) + ".")
 
+#romb
+
+a = 5
+h = 4
+
+obwod= 4 * a
+pole = a * h
+print("Obwod rombu wynosi: " + str(obwod) + ",a pole: " + str(pole) + ".")
 
 
