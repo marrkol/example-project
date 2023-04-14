@@ -23,3 +23,12 @@ print("Liczba studentow wynosi: " + liczba_studentow)
 studenci = ["Ania", "Kasia", "Piotr", "Tomek"]
 for student in studenci:
     print("Hello " + student)
+
+# zadanie 1.5
+
+liczba = 3
+potega = 4
+
+wynik = str(liczba**potega)
+
+print("Wynik wynosi: " + wynik)
