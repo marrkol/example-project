@@ -75,3 +75,9 @@ for student in studenci:
 
 print("Liczba studentow na N wynosi: " + str(liczba_n))
 
+
+
+
+
+
+
