@@ -1,24 +1,60 @@
-class Student:
-    def __init__(self, imie, nazwisko, numer_indeksu):
-        self.imie = imie
-        self.nazwisko = nazwisko
-        self.numer_indeksu = numer_indeksu
-        self.oceny = []
+class Trojkat:
+    def __init__ (self, a, b, c, h_a):
+        self.bok_a = a
+        self.b = b
+        self.c = c
+        self.h_a = h_a
+# self.obwod = a + b + c
 
-    def __str__(self):
-        return f"{self.imie} {self.nazwisko} {self.numer_indeksu}"
+def obwod(self):
+    return self.bok_a + self.b + self.c
 
-    def __int__(self):
-        return 5
 
-    def dodaj_ocene(self, ocena):
-        self.oceny.append(ocena)
+    trojkat_rownoboczny = Trojkat (10, 10, 10, 8)
 
-    def zwroc_srednia(self):
-        return sum(self.oceny)/len(self.oceny)
+    trojkat_rownoboczny.obwod()
 
-student_ola = Student("Aleksandra", "Wojewoda", 123123)
-print(int(student_ola))
-print(student_ola.zwroc_srednia)
-student_ola.dodaj_ocene(5)
-print(student_ola.oceny)
+
+
+class Trojkat:
+      def __init__(self, a, b, c, h_a):
+          self.bok_a = a
+          self.b = b
+          self.c = c
+          self.h_a = h_a
+      # self.obwod = a + b + c
+
+      def obwod(self):
+       return self.bok_a + self.b + self.c
+
+      def pole(self):
+    #TO DO
+       return 0
+
+
+trojkat_rownoboczny = Trojkat(10,10,10,8)
+
+print(trojkat_rownoboczny)
+
+print(trojkat_rownoboczny.obwod())
+
+moj_trojkat = Trojkat(3,7,5,4)
+
+
+class Kwadrat:
+    def __init__(self, a):
+        self.bok_a = a
+
+def obwod(self):
+    return self.bok_a * 4
+
+
+def pole(self):
+    return self.bok_a * self.bok_a
+
+
+xkwadrat = Kwadrat(10)
+
+print(xkwadrat)
+
+print(xkwadrat.obwod())
