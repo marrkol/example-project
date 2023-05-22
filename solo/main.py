@@ -57,4 +57,3 @@ xkwadrat = Kwadrat(10)
 
 print(xkwadrat)
 
-print(xkwadrat.obwod())
