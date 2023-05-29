@@ -58,3 +58,103 @@ print(fib(8))
 #           y -> zwróć 1
 #           n -> zwróć fib(n-1) + fib(n-2)
 
+
+# sudoku 4x4
+import numpy as np
+
+grid = [[0, 4, 3, 0],
+    [0, 0, 0, 0],
+    [0, 3, 0, 4],
+    [0, 1, 2, 0]]
+
+
+def check(row, column, number):
+    global grid
+    # sprawdzenie czy cyfra pojawia się w danym wierszu
+    for i in range(0, 4):
+        if grid[row][i] == number:
+            return False
+
+    # sprawdzenie czy cyfra pojawia się w danej kolumnie
+    for i in range(0, 4):
+        if grid[i][column] == number:
+            return False
+
+    # sprawdzenie czy cyfra pojawia się w danym kwadracie
+    x0 = (column // 2) * 2
+    y0 = (row // 2) * 2
+    for i in range(0, 2):
+        for j in range(0, 2):
+            if grid[y0 + i][x0 + j] == number:
+                return False
+
+    return True
+
+# rekurencyjny algorytmy zstępujący (backtracking)
+def solve():
+    global grid
+    for row in range(0, 4):
+        for column in range(0, 4):
+            if grid[row][column] == 0:
+                for number in range(1, 5):
+                    if check(row, column, number):
+                        grid[row][column] = number
+                        solve()
+                        grid[row][column] = 0
+
+                return
+
+    print(np.matrix(grid))
+solve()
+
+# sudoku 9x9
+
+grid = [[0, 0, 0, 5, 0, 0, 0, 2, 0],
+        [0, 7, 0, 6, 0, 0, 0, 4, 0],
+        [4, 2, 0, 0, 0, 1, 0, 9, 0],
+        [0, 4, 0, 1, 0, 0, 0, 0, 6],
+        [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        [0, 3, 0, 0, 9, 0, 0, 7, 0],
+        [5, 0, 2, 0, 0, 0, 0, 0, 0],
+        [0, 0, 3, 0, 0, 5, 0, 0, 7],
+        [0, 1, 4, 3, 0, 0, 0, 0, 8]]
+
+
+def check(row, column, number):
+    global grid
+    # sprawdzenie czy cyfra pojawia się w danym wierszu
+    for i in range(0, 9):
+        if grid[row][i] == number:
+            return False
+
+    # sprawdzenie czy cyfra pojawia się w danej kolumnie
+    for i in range(0, 9):
+        if grid[i][column] == number:
+            return False
+
+    # sprawdzenie czy cyfra pojawia się w danym kwadracie
+    x0 = (column // 3) * 3
+    y0 = (row // 3) * 3
+    for i in range(0, 3):
+        for j in range(0, 3):
+            if grid[y0 + i][x0 + j] == number:
+                return False
+
+    return True
+
+# rekurencyjny algorytmy zstępujący (backtracking)
+def solve():
+    global grid
+    for row in range(0, 9):
+        for column in range(0, 9):
+            if grid[row][column] == 0:
+                for number in range(1, 10):
+                    if check(row, column, number):
+                        grid[row][column] = number
+                        solve()
+                        grid[row][column] = 0
+
+                return
+
+    print(np.matrix(grid))
+solve()
