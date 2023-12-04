@@ -6,11 +6,9 @@ app = Flask(__name__)
 with open('animations.json', 'r') as file:
     animations = json.load(file)
 
-
-@app.route('/titles', methods=['GET'])
-def get_titles():
-    titles = [animation['Original title'] for animation in animations['animations']]
-    return jsonify(titles)
+@app.route("/")
+def hello():
+    return "<h1>Hello world!</h1>"
 
 @app.route('/directors/<expression>', methods=['GET'])
 def get_directors(expression):
@@ -22,19 +20,21 @@ def get_directors(expression):
 
 @app.route('/titles', methods=['GET'])
 def get_titles_by_year():
-    try:
-        from_year = int(request.args.get('from', 0))   # Default to 0 if not provided
-        to_year = int(request.args.get('to', 9999))    # Default to 9999 if not provided
-    except ValueError:
-        return jsonify({"error": "Invalid year format"}), 400
+    if 'from' in request.args and 'to' in request.args:
+        from_year = int(request.args.get('from'))
+        to_year = int(request.args.get('to'))
 
-    titles = [
-        animation['Original title']
-        for animation in ANIMATIONS['animations']  # Assuming ANIMATIONS is a global constant
-        if from_year <= int(animation['Year of production']) <= to_year
-    ]
 
-    return jsonify(titles)
+        titles = [
+            animation['Original title']
+            for animation in animations['animations']
+            if from_year <= int(animation['Year of production']) <= to_year
+        ]
+
+        return jsonify(titles)
+    else:
+        titles = [animation['Original title'] for animation in animations['animations']]
+        return jsonify(titles)
 
 
 if __name__ == '__main__':
